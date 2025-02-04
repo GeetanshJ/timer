@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PomoDoro Timer</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>PomoDoro Timer</h1>
+        <h1 id="showTime">00:00</h1>
+
+        <div class="action-btn">
+            <button class="start-btn" id="start">Start</button>
+            <button class="reset-btn" id="reset" onclick="resetTask()">Reset</button>
+            <button class="pause-resume-btn" id="resume-pause" >Pause</button>
+        </div>
+
+        <div class="timer">
+            <button class="time-btn"  value = "0.5">15 minutes</button>
+            <button class="time-btn"  value = "0.2">30 minutes</button>
+            <button class="time-btn" value = "60">60 minutes</button>
+        </div>
+
+
+            <div id="progress" class="progress-child"></div>
+    </div>
+
+</body>
+
+<script src="./JS/script.js"></script>
+
+</html>

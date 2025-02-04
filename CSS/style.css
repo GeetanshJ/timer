@@ -1,0 +1,132 @@
+body{
+    background-color: rgb(45, 55, 72);
+    display: flex;
+    font-family: "Poppins", serif;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.progress-child{
+    height: 20px;
+    width: 0%;
+    background-color: #009df8;
+}
+
+.container{
+    display: flex;
+
+    flex-direction: column;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+.start-btn{
+    width: 150px;
+    margin: 20px;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid white;
+    color: white;
+    background-color: rgb(255, 102, 75);
+}
+
+.start-btn:hover{
+    cursor: pointer;
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid rgb(255, 102, 75);
+    color: rgb(255, 102, 75);;
+    background-color: white;
+}
+
+.reset-btn{
+    width: 150px;
+    margin: 20px;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid white;
+    color: white;
+    background-color: rgb(93, 178, 234);
+    cursor: pointer;
+}
+
+.reset-btn:hover{
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid rgb(93, 178, 234);
+    color: rgb(93, 178, 234);
+    background-color: white;
+    cursor: pointer;
+}
+
+.pause-resume-btn{
+    width: 150px;
+    margin: 20px;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid white;
+    color: white;
+    background-color: rgb(226, 171, 19);
+    cursor: pointer;
+}
+
+.pause-resume-btn:hover{
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid rgb(226, 171, 19);
+    color: rgb(226, 171, 19);
+    background-color: white;
+    cursor: pointer;
+}
+
+.action-btn{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.timer{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.time-btn{
+    width: 150px;
+    margin: 20px;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: 0.5s ease-in-out;
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid white;
+    color: white;
+    background-color: rgb(89, 210, 150);
+    cursor: pointer;
+}
+
+.time-btn:hover{
+    padding: 10px 25px; 
+    border-radius: 10px;
+    border: 3px solid rgb(89, 210, 150);
+    color: rgb(89, 210, 150);
+    background-color: white;
+    cursor: pointer;
+}
