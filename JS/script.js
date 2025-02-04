@@ -66,7 +66,7 @@ function resetTask() {
 }
 
 function displayTime(min, check) {
-    if (check == 1) resetTask();
+    if (check == 0) resetTask();
     timeLeft = min * 60;
     totalTime = min * 60;
     updateDisplay();
