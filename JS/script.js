@@ -8,6 +8,8 @@ var minTime = document.querySelectorAll(".time-btn")
 
 minTime.forEach((e) => {
     e.addEventListener("click", () => {
+        let selectTime = new Audio("./AUDIOS/time_select.wav");
+        selectTime.play();
         globalTime = e.value
         displayTime(globalTime, 0)
     })
@@ -54,19 +56,18 @@ resume_pause.addEventListener("click", () => {
 });
 
 function resetTask() {
-    let resetAudio = new Audio("./AUDIOS/task_reset.wav");
-    resetAudio.play()
-    showTime.textContent = "00:00";
-    timeLeft = 0;
-    totalTime = 1;
-    updateDisplay()
-    clearInterval(timeInterval)
-    clearInterval(pauseInterval)
-
+        let resetAudio = new Audio("./AUDIOS/task_reset.wav");
+        resetAudio.play()
+        showTime.textContent = "00:00";
+        timeLeft = 0;
+        totalTime = 1;
+        updateDisplay()
+        clearInterval(timeInterval)
+        clearInterval(pauseInterval)
 }
 
 function displayTime(min, check) {
-    if (check == 0) resetTask();
+     resetTask();
     timeLeft = min * 60;
     totalTime = min * 60;
     updateDisplay();
