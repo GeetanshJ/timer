@@ -23,7 +23,6 @@ start.addEventListener("click", () => {
         let startAudio = new Audio("./AUDIOS/task_start.wav");
         startAudio.play();
         displayTime(globalTime, 1)
-
     }
 
     else {
@@ -67,7 +66,7 @@ function resetTask() {
 }
 
 function displayTime(min, check) {
-    resetTask();
+    if (check == 1) resetTask();
     timeLeft = min * 60;
     totalTime = min * 60;
     updateDisplay();
