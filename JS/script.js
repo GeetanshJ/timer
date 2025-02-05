@@ -12,6 +12,8 @@ minTime.forEach((e) => {
         let selectTime = new Audio("./AUDIOS/time_select.wav");
         selectTime.play();
         globalTime = e.value
+        isStart = false
+
         displayTime(globalTime, 0)
     })
 })
