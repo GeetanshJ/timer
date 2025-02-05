@@ -4,6 +4,7 @@ var showTime = document.querySelector("#showTime");
 var reset = document.querySelector("#reset");
 var progressBar = document.querySelector("#progress");
 var globalTime = 0
+var isStart = false;
 var minTime = document.querySelectorAll(".time-btn")
 
 minTime.forEach((e) => {
@@ -24,6 +25,7 @@ start.addEventListener("click", () => {
     if (showTime.textContent !== "00:00") {
         let startAudio = new Audio("./AUDIOS/task_start.wav");
         startAudio.play();
+        isStart = true
         displayTime(globalTime, 1)
     }
 
@@ -33,7 +35,7 @@ start.addEventListener("click", () => {
 });
 
 resume_pause.addEventListener("click", () => {
-    if (showTime.textContent !== "00:00") {
+    if (showTime.textContent !== "00:00" && isStart) {
         if (resume_pause.textContent === "Pause") {
             resume_pause.textContent = "Resume";
             let alarmAudio = new Audio("./AUDIOS/task_alarm.wav");
@@ -46,7 +48,7 @@ resume_pause.addEventListener("click", () => {
         else {
             resume_pause.textContent = "Pause";
             clearInterval(pauseInterval);
-            timeInterval = setInterval(updateTime, 1000);
+             timeInterval = setInterval(updateTime, 1000);
         }
     }
 
