@@ -48,7 +48,7 @@ resume_pause.addEventListener("click", () => {
         else {
             resume_pause.textContent = "Pause";
             clearInterval(pauseInterval);
-             timeInterval = setInterval(updateTime, 1000);
+            timeInterval = setInterval(updateTime, 1000);
         }
     }
 
@@ -57,11 +57,13 @@ resume_pause.addEventListener("click", () => {
     }
 });
 
+
+reset.addEventListener(("click"), () => {
+    let resetAudio = new Audio("./AUDIOS/task_reset.wav");
+    resetAudio.play()
+})
+
 function resetTask() {
-    reset.addEventListener(("click"), () => {
-        let resetAudio = new Audio("./AUDIOS/task_reset.wav");
-        resetAudio.play()
-    })
 
     showTime.textContent = "00:00";
     timeLeft = 0;
