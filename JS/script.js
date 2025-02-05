@@ -56,18 +56,21 @@ resume_pause.addEventListener("click", () => {
 });
 
 function resetTask() {
+    reset.addEventListener(("click"), () => {
         let resetAudio = new Audio("./AUDIOS/task_reset.wav");
         resetAudio.play()
-        showTime.textContent = "00:00";
-        timeLeft = 0;
-        totalTime = 1;
-        updateDisplay()
-        clearInterval(timeInterval)
-        clearInterval(pauseInterval)
+    })
+
+    showTime.textContent = "00:00";
+    timeLeft = 0;
+    totalTime = 1;
+    updateDisplay()
+    clearInterval(timeInterval)
+    clearInterval(pauseInterval)
 }
 
 function displayTime(min, check) {
-     resetTask();
+    resetTask();
     timeLeft = min * 60;
     totalTime = min * 60;
     updateDisplay();
@@ -91,7 +94,7 @@ function updateTime() {
 function updateDisplay() {
     let minLeft = Math.floor(timeLeft / 60);
     let secLeft = timeLeft % 60;
-    showTime.textContent = `${minLeft < 10 ? '0'+minLeft :minLeft}:${secLeft < 10 ? '0'+secLeft :secLeft}`;
+    showTime.textContent = `${minLeft < 10 ? '0' + minLeft : minLeft}:${secLeft < 10 ? '0' + secLeft : secLeft}`;
     let width = (timeLeft / totalTime) * 100
     progressBar.style.width = `${width}%`
 }
