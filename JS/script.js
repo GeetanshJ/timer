@@ -73,6 +73,7 @@ function resetTask() {
     updateDisplay()
     clearInterval(timeInterval)
     clearInterval(pauseInterval)
+    resume_pause.textContent = "Pause"
 }
 
 function displayTime(min, check) {
