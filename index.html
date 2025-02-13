@@ -16,26 +16,28 @@
 
 <body>
     <div class="container">
-        <h1>PomoDoro Timer</h1>
-        <h1 id="showTime">00:00</h1>
+        <h1 class="task-break"></h1>
+        <h1 id="showTime">00:00:00</h1>
 
         <div class="action-btn">
             <button class="start-btn" id="start">Start</button>
             <button class="reset-btn" id="reset" onclick="resetTask()">Reset</button>
-            <button class="pause-resume-btn" id="resume-pause" >Pause</button>
+            <button class="pause-resume-btn" id="resume-pause">Pause</button>
         </div>
 
         <div class="timer">
-            <button class="time-btn"  value = "0.2">12 sec</button>
-            <button class="time-btn"  value = "0.5">30 sec</button>
-            <button class="time-btn"  value = "1">1 min</button>
-            <button class="time-btn"  value = "15">15 minutes</button>
-            <button class="time-btn"  value = "30">30 minutes</button>
-            <button class="time-btn" value = "60">60 minutes</button>
+            <button class="time-btn" value="0.50">30 minutes</button>
+            <button class="time-btn" value="1">1 hour</button>
+            <button class="time-btn" value="2">2 Hours</button>
         </div>
 
+        <div class="break">
+            <button class="break-btn" value="0.25">15 minutes</button>
+            <button class="break-btn" value="0.50">30 minutes</button>
+            <button class="break-btn" value="0.75">45 minutes</button>
+        </div>
 
-            <div id="progress" class="progress-child"></div>
+        <div id="progress" class="progress-child"></div>
     </div>
 
 </body>

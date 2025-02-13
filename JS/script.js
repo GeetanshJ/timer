@@ -3,30 +3,28 @@ var start = document.querySelector("#start");
 var showTime = document.querySelector("#showTime");
 var reset = document.querySelector("#reset");
 var progressBar = document.querySelector("#progress");
+var task_break = document.querySelector(".task-break");
 var globalTime = 0
 var isStart = false;
-var minTime = document.querySelectorAll(".time-btn")
-
-minTime.forEach((e) => {
-    e.addEventListener("click", () => {
-        let selectTime = new Audio("./AUDIOS/time_select.wav");
-        selectTime.play();
-        globalTime = e.value
-        isStart = false
-
-        displayTime(globalTime, 0)
-    })
-})
-
 var pauseInterval = null;
 var timeInterval = null;
 var timeLeft = 0;
 var totalTime = 0;
+var taskTime = document.querySelectorAll(".time-btn")
+var breakTime = document.querySelectorAll(".break-btn")
+var titleOfTask = document.querySelector(".task-break")
+
+taskTime.forEach((e) => {
+    e.addEventListener("click", () => {
+        globalTime = e.value
+        isStart = false
+        titleOfTask.textContent = "Task Time"
+        displayTime(globalTime, 0)
+    })
+})
 
 start.addEventListener("click", () => {
-    if (showTime.textContent !== "00:00") {
-        let startAudio = new Audio("./AUDIOS/task_start.wav");
-        startAudio.play();
+    if (showTime.textContent !== "00:00:00") {
         isStart = true
         displayTime(globalTime, 1)
     }
@@ -36,13 +34,23 @@ start.addEventListener("click", () => {
     }
 });
 
+breakTime.forEach((e) => {
+    e.addEventListener("click", () => {
+        globalTime = e.value
+        isStart = false
+        titleOfTask.textContent = "Break Time"
+
+        displayTime(globalTime, 0)
+    })
+})
+
+
+
 resume_pause.addEventListener("click", () => {
-    if (showTime.textContent !== "00:00" && isStart) {
+    if (showTime.textContent !== "00:00:00" && isStart) {
         if (resume_pause.textContent === "Pause") {
             resume_pause.textContent = "Resume";
-            let alarmAudio = new Audio("./AUDIOS/task_alarm.wav");
             pauseInterval = setInterval(() => {
-                alarmAudio.play();
             }, 500);
             clearInterval(timeInterval);
         }
@@ -61,13 +69,11 @@ resume_pause.addEventListener("click", () => {
 
 
 reset.addEventListener(("click"), () => {
-    let resetAudio = new Audio("./AUDIOS/task_reset.wav");
-    resetAudio.play()
 })
 
 function resetTask() {
 
-    showTime.textContent = "00:00";
+    showTime.textContent = "00:00:00";
     timeLeft = 0;
     totalTime = 1;
     updateDisplay()
@@ -76,10 +82,10 @@ function resetTask() {
     resume_pause.textContent = "Pause"
 }
 
-function displayTime(min, check) {
+function displayTime(time, check) {
     resetTask();
-    timeLeft = min * 60;
-    totalTime = min * 60;
+    timeLeft = time*60*60;
+    totalTime = time*60*60;
     updateDisplay();
 
     if (check == 1) timeInterval = setInterval(updateTime, 1000);
@@ -92,16 +98,15 @@ function updateTime() {
     }
 
     else {
-        let taskFinish = new Audio("./AUDIOS/task_finish.wav");
-        taskFinish.play();
         resetTask()
     }
 }
 
 function updateDisplay() {
-    let minLeft = Math.floor(timeLeft / 60);
+    let hrsLeft = Math.floor(timeLeft / 3600);
+    let minLeft = Math.floor(Math.floor(timeLeft % 3600) / 60);
     let secLeft = timeLeft % 60;
-    showTime.textContent = `${minLeft < 10 ? '0' + minLeft : minLeft}:${secLeft < 10 ? '0' + secLeft : secLeft}`;
+    showTime.textContent = `${hrsLeft < 10 ? '0' + hrsLeft : hrsLeft}:${minLeft < 10 ? '0' + minLeft : minLeft}:${secLeft < 10 ? '0' + secLeft : secLeft}`;
     let width = (timeLeft / totalTime) * 100
     progressBar.style.width = `${width}%`
 }
