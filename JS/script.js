@@ -107,7 +107,7 @@ function updateTime() {
 function updateDisplay() {
     let hrsLeft = Math.floor(timeLeft / 3600);
     let minLeft = Math.floor(Math.floor(timeLeft % 3600) / 60);
-    let secLeft = timeLeft % 60;
+    let secLeft =  Math.floor(timeLeft % 60);
     showTime.textContent = `${hrsLeft < 10 ? '0' + hrsLeft : hrsLeft}:${minLeft < 10 ? '0' + minLeft : minLeft}:${secLeft < 10 ? '0' + secLeft : secLeft}`;
     let width = (timeLeft / totalTime) * 100
     progressBar.style.width = `${width}%`
