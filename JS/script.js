@@ -98,6 +98,8 @@ function updateTime() {
     }
 
     else {
+        let audio = new Audio("./AUDIOS/audio.wav")
+        audio.play()
         resetTask()
     }
 }
